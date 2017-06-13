@@ -1,0 +1,22 @@
+{
+  "name": "elastic-email-lite",
+  "version": "0.0.0",
+  "description": "Lite Elastic Email Api Wrapper. Only core modules! No dependencies!",
+  "main": "lib/index.js",
+  "scripts": {
+    "lint": "eslint **/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/glokam/elastic-email-lite.git"
+  },
+  "author": "Kamil Głowacki",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/glokam/elastic-email-lite/issues"
+  },
+  "homepage": "https://github.com/glokam/elastic-email-lite#readme",
+  "devDependencies": {
+	"eslint": "^3.18.0"
+  }
+}
