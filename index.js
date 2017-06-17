@@ -35,9 +35,14 @@ class ElasticEmail {
 				headers: postheaders
 			};
 			reqPost = https.request( optionspost, ( res ) => {
-				console.log( 'statusCode: ', res.statusCode );
 				res.on( 'data', ( data ) => {
-					resolve( JSON.parse( data.toString() ) );
+					try {
+				 		data = JSON.parse( data.toString() );
+					} catch ( err ) {
+						reject( err );
+					}
+					if (!data.success) return reject( new Error(data.error) );
+					resolve( data.data );
 				} );
 			} );
 			reqPost.end( params );
