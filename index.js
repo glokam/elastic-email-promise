@@ -46,6 +46,12 @@ class ElasticEmail {
 			} );
 		} );
 	}
+	getKey() {
+		return this.apikey;
+	}
+	setKey( key ) {
+		return this.apikey = key
+	}
 }
 
 module.exports = {
