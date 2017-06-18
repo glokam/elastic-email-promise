@@ -6,9 +6,8 @@ const querystring = require( 'querystring' );
 
 class ElasticEmail {
 
-	constructor( opt ) {
-		if ( !opt ) opt = {};
-		this.apikey = opt.apikey;
+	constructor( { apikey } = {} ) {
+		this.apikey = apikey;
 	}
 	request( path, query ) {
 
@@ -37,11 +36,11 @@ class ElasticEmail {
 			reqPost = https.request( optionspost, ( res ) => {
 				res.on( 'data', ( data ) => {
 					try {
-				 		data = JSON.parse( data.toString() );
+						data = JSON.parse( data.toString() );
 					} catch ( err ) {
 						reject( err );
 					}
-					if (!data.success) return reject( new Error(data.error) );
+					if ( !data.success ) return reject( new Error( data.error ) );
 					resolve( data.data );
 				} );
 			} );
@@ -55,7 +54,7 @@ class ElasticEmail {
 		return this.apikey;
 	}
 	setKey( key ) {
-		return this.apikey = key
+		return this.apikey = key;
 	}
 }
 
