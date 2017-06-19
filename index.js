@@ -3,6 +3,15 @@
 
 const https = require( 'https' );
 const querystring = require( 'querystring' );
+const FormData = require( 'form-data' );
+
+function __getFormData( params ) {
+	var form = new FormData();
+	for (var prop in params) {
+		form.append(prop, params[prop]);
+	}
+	return form;
+}
 
 class ElasticEmail {
 
@@ -16,22 +25,21 @@ class ElasticEmail {
 			var params = {},
 				postheaders,
 				optionspost,
+				form,
 				reqPost;
 
 			if ( !query ) query = {};
 			if ( this.apikey ) params.apikey = this.apikey;
 			Object.assign( params, query );
-			params = querystring.stringify( params );
-			postheaders = {
-				'Content-Type': 'application/x-www-form-urlencoded',
-				'Content-Length': params.length
-			};
+
+			form = __getFormData( params );
+
 			optionspost = {
 				host: 'api.elasticemail.com',
 				port: 443,
 				path: `${path}?version=2`,
 				method: 'POST',
-				headers: postheaders
+				headers: form.getHeaders()
 			};
 			reqPost = https.request( optionspost, ( res ) => {
 				res.on( 'data', ( data ) => {
@@ -44,7 +52,7 @@ class ElasticEmail {
 					resolve( data.data );
 				} );
 			} );
-			reqPost.end( params );
+			form.pipe( reqPost );
 			reqPost.on( 'error', ( err ) => {
 				reject( err );
 			} );

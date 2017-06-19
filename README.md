@@ -1,2 +1,2 @@
 # elastic-email-lite
-## LITE Elastic Email API Wrapper. No dependencies! Only core modules!
+## LITE & EASY Elastic Email API Wrapper. Only one method and PROMISES!
