@@ -27,7 +27,10 @@ class ElasticEmail {
 				optionspost,
 				form,
 				reqPost;
-
+			//PATH VALIDATION
+			if ( typeof path !== 'string' || path === '' ) return reject( new Error('Path should be a non-empty string!') );
+			if ( path.charAt(0) !== '/' ) path = `/${path}`;
+			//SET PARAMS OBJECT
 			if ( !query ) query = {};
 			if ( this.apikey ) params.apikey = this.apikey;
 			Object.assign( params, query );
