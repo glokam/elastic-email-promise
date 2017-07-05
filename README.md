@@ -22,11 +22,20 @@ eeClient.request( '/contact/findcontact', { email: 'example@example.com' } )
     .then( function( data ) { console.log( data ) } )
     .catch( function( error ) { console.log( error.message ) } )
 ```
+__request method with file upload:__
+```js
+const fs = require('fs');
 
+eeClient.request( '/contact/upload', {
+    contactFile: fs.createReadStream('CSV_Sample1.csv')
+    })
+	.then( function( data ) { console.log( data ) } )
+	.catch( function( error ) { console.log( error.message ) } )
+```
 ### Request method:
 
 ```js
- eelite.request('path', { params });
+ eelite.request( 'path', { params } );
 ```
 __path__ : string; path for method (f.e. "/channel/list")
 __params__: object; parameters for method
@@ -46,5 +55,5 @@ Elastic Email API (version 2) response dosen't have correct HTTP status code. Al
 1. Elastic Email Lite will __try__ parse response to __JSON__.
 * If something goes wrong, the exception be thrown to Promise __reject__
 2. Then JSON __success__ parameter will be check.
-* If __true__: resolve( __data__);
-* If __false__: reject( new Error( __error__ ));
+* If __true__: resolve( __data__ );
+* If __false__: reject( new Error( __error__ ) );
