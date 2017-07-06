@@ -2,20 +2,21 @@
 /* eslint curly: 0 */
 
 const https = require( 'https' );
-const querystring = require( 'querystring' );
 const FormData = require( 'form-data' );
 
 function __getFormData( params ) {
 	var form = new FormData();
-	for (var prop in params) {
-		form.append(prop, params[prop]);
+	for ( var prop in params ) {
+		form.append( prop, params[ prop ] );
 	}
 	return form;
 }
 
 class ElasticEmail {
 
-	constructor( { apikey } = {} ) {
+	constructor( {
+		apikey
+	} = {} ) {
 		this.apikey = apikey;
 	}
 	request( path, query ) {
@@ -23,14 +24,13 @@ class ElasticEmail {
 		return new Promise( ( resolve, reject ) => {
 
 			var params = {},
-				postheaders,
 				optionspost,
 				form,
 				reqPost;
-			//PATH VALIDATION
-			if ( typeof path !== 'string' || path === '' ) return reject( new Error('Path should be a non-empty string!') );
-			if ( path.charAt(0) !== '/' ) path = `/${path}`;
-			//SET PARAMS OBJECT
+			// PATH VALIDATION
+			if ( typeof path !== 'string' || path === '' ) return reject( new Error( 'Path should be a non-empty string!' ) );
+			if ( path.charAt( 0 ) !== '/' ) path = `/${path}`;
+			// SET PARAMS OBJECT
 			if ( !query ) query = {};
 			if ( this.apikey ) params.apikey = this.apikey;
 			Object.assign( params, query );
