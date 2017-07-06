@@ -1,26 +1,31 @@
 {
-  "name": "elastic-email-lite",
-  "version": "1.0.0",
-  "private": true,
-  "description": "LITE & EASY Elastic Email API Wrapper.",
-  "main": "lib/index.js",
-  "scripts": {
-    "lint": "eslint **/*.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/glokam/elastic-email-lite.git"
-  },
-  "author": "Kamil Głowacki",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/glokam/elastic-email-lite/issues"
-  },
-  "homepage": "https://github.com/glokam/elastic-email-lite#readme",
-  "devDependencies": {
-    "eslint": "^3.18.0"
-  },
-  "dependencies": {
-    "form-data": "^2.2.0"
-  }
+    "name": "elastic-email-promise",
+    "version": "1.0.0",
+    "description": "LITE & EASY Elastic Email API Wrapper with ES 2015 Promises.",
+    "main": "lib/index.js",
+    "scripts": {
+        "lint": "eslint **/*.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/glokam/elastic-email-promise.git"
+    },
+    "keywords": [
+        "Elastic Email",
+        "mail sender",
+        "email",
+        "mail api"
+    ],
+    "author": "Kamil Głowacki",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/glokam/elastic-email-promise/issues"
+    },
+    "homepage": "https://github.com/glokam/elastic-email-promise#readme",
+    "devDependencies": {
+        "eslint": "^3.18.0"
+    },
+    "dependencies": {
+        "form-data": "^2.2.0"
+    }
 }

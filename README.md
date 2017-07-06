@@ -3,11 +3,11 @@ This LITE Wrapper, allows you to quickly and easily use the Elastic Email API v2
 ### Quick Examples:
 __Install:__
 ```js
-npm i elastic-email-lite
+npm i elastic-email-promise
 ```
 __Set up your client:__
 ```js
-const ee = require( 'elastic-email-lite' );
+const ee = require( 'elastic-email-promise' );
 const eeClient = ee.Client( { apikey: 'Your Apikey' } );
 ```
 __request method with only api key required:__
@@ -35,7 +35,7 @@ eeClient.request( '/contact/upload', {
 ### Request method:
 
 ```js
- eelite.request( 'path', { params } );
+ eepromise.request( 'path', { params } );
 ```
 __path__ : string; path for method (f.e. "/channel/list")
 __params__: object; parameters for method
@@ -43,7 +43,7 @@ __return__ => Promise Object with respond
 
 __More information about EE Api methods you can find in [EE API Documentation](https://api.elasticemail.com/public/help)__
 
-##### How does elastic-email-lite pass Elastic Email response?
+##### How does elastic-email-promise pass Elastic Email response?
 
 Elastic Email API (version 2) response dosen't have correct HTTP status code. All responses are JSON string:
 ```js
@@ -52,7 +52,7 @@ Elastic Email API (version 2) response dosen't have correct HTTP status code. Al
 //On false
 {success: false, error: 'error message as string'}
 ```
-1. Elastic Email Lite will __try__ parse response to __JSON__.
+1. Elastic Email Promise will __try__ parse response to __JSON__.
 * If something goes wrong, the exception be thrown to Promise __reject__
 2. Then JSON __success__ parameter will be check.
 * If __true__: resolve( __data__ );
