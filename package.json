@@ -1,6 +1,6 @@
 {
     "name": "elastic-email-promise",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "LITE & EASY Elastic Email API Wrapper with ES 2015 Promises.",
     "main": "lib/index.js",
     "scripts": {

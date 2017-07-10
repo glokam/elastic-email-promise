@@ -1,5 +1,9 @@
 This LITE Wrapper, allows you to quickly and easily use the Elastic Email API v2 via Node.js and with ES 2015 Promises.
 
+[![Latest Stable Version](https://img.shields.io/npm/v/elastic-email-promise.svg)](https://www.npmjs.com/package/elastic-email-promise)
+[![License](https://img.shields.io/npm/l/elastic-email-promise.svg)](https://www.npmjs.com/package/elastic-email-promise)
+[![NPM Downloads](https://img.shields.io/npm/dm/elastic-email-promise.svg)](https://www.npmjs.com/package/elastic-email-promise)
+
 ### Quick Examples:
 __Install:__
 ```js
